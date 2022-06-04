@@ -1,4 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flag/flag_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
@@ -51,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 135,left: 50),
+        margin: EdgeInsets.only(top: 135, left: 50),
         child: Column(
           children: [
             // Image(
@@ -91,9 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // letterSpacing: 0.5,
               ),
             ),
-            SizedBox(
-              height: 24.0
-            ),
+            SizedBox(height: 24.0),
             Container(
               height: 48,
               width: 216,
@@ -141,7 +141,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   side: BorderSide(width: 260, color: Colors.brown),
                 ),
                 onPressed: () {
-                  secondPage();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const secondPage()),
+                  );
                 },
                 child: Text(
                   'NEXT',
@@ -186,7 +189,367 @@ class secondPage extends StatefulWidget {
 class _secondPageState extends State<secondPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            // margin: EdgeInsets.only(left: 8),
+            child: InkWell(
+              child: Icon(
+                Icons.close,
+                color: Colors.black,
+              ),
+              onTap: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+            ),
+          ),
+        ),
+        body: Center(
+          child: Container(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 53.59,
+                ),
+                Text(
+                  'Please enter your mobile number',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.07,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Text(
+                  'You\'ll receive a 4 digit code \n to verify next.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xff6A6C7B),
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.07,
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    // letterSpacing: 0.5,
+                  ),
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                SizedBox(
+                  height: 56,
+                  width: 327,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      // label ('Phone Number', style: TextStyle(
+                      //   color: ,
+                      // ),),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
+                    ),
+                    onChanged: (phone) {
+                      print('hello');
+                    },
+                  ),
+                ),
+                  // Flag.fromString('AD', height: 10, width: 100, fit: BoxFit.fill),
+                SizedBox(
+                  height: 24,
+                  // width: 328,
+                ),
+                SizedBox(
+                  height: 56.0,
+                  width: 328.0,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xff2E3B62),
+                      side: BorderSide(width: 260, color: Colors.brown),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const thirdPage()),
+                      );
+                    },
+                    child: Text(
+                      'CONTINUE',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
+
+class thirdPage extends StatefulWidget {
+  const thirdPage({Key? key}) : super(key: key);
+
+  @override
+  State<thirdPage> createState() => _thirdPageState();
+}
+
+class _thirdPageState extends State<thirdPage> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            // margin: EdgeInsets.only(left: 8),
+            child: InkWell(
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+              onTap: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => const secondPage()),
+                );
+              },
+            ),
+          ),
+        ),
+        body: Center(
+          child: Container(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 53.59,
+                ),
+                Text(
+                  'Verify Phone',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.07,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 8.0,
+                ),
+                Text(
+                  'Code is sent to ',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xff6A6C7B),
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.07,
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    // letterSpacing: 0.5,
+                  ),
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                SizedBox(
+                  height: 56,
+                  width: 327,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      // label ('Phone Number', style: TextStyle(
+                      //   color: ,
+                      // ),),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
+                    ),
+                    onChanged: (phone) {
+                      print('hello');
+                    },
+                  ),
+                ),
+                // Flag.fromString('AD', height: 10, width: 100, fit: BoxFit.fill),
+                SizedBox(
+                  height: 16,
+                  // width: 328,
+                ),
+                Text(
+                  'Didn\'t receive the code? ',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xff6A6C7B),
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.07,
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    // letterSpacing: 0.5,
+                  ),
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                SizedBox(
+                  height: 56.0,
+                  width: 328.0,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xff2E3B62),
+                      side: BorderSide(width: 260, color: Colors.brown),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const fourthPage()),
+                      );
+                    },
+                    child: Text(
+                      'VERIFY AND CONTINUE',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class fourthPage extends StatefulWidget {
+  const fourthPage({Key? key}) : super(key: key);
+
+  @override
+  State<fourthPage> createState() => _fourthPageState();
+}
+
+class _fourthPageState extends State<fourthPage> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            // margin: EdgeInsets.only(left: 8),
+            child: InkWell(
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+              onTap: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => const secondPage()),
+                );
+              },
+            ),
+          ),
+        ),
+        body: Center(
+          child: Container(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 53.59,
+                ),
+                Text(
+                  'Please select your profile',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.07,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 8.0,
+                ),
+                SizedBox(
+                  height: 56,
+                  width: 327,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      // label ('Phone Number', style: TextStyle(
+                      //   color: ,
+                      // ),),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
+                    ),
+                    onChanged: (phone) {
+                      print('hello');
+                    },
+                  ),
+                ),
+                // Flag.fromString('AD', height: 10, width: 100, fit: BoxFit.fill),
+                SizedBox(
+                  height: 16,
+                  // width: 328,
+                ),
+                SizedBox(
+                  height: 56.0,
+                  width: 328.0,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xff2E3B62),
+                      side: BorderSide(width: 260, color: Colors.brown),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const fourthPage()),
+                      );
+                    },
+                    child: Text(
+                      'CONTINUE',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 
