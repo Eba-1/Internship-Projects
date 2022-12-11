@@ -2,15 +2,9 @@
 
 A new Flutter project.
 
-## Getting Started
+## A cross-platform mobile application for user sign-in pages for my internship at LiveEasy
 
-This project is a starting point for a Flutter application.
+Design provided by the company - https://www.figma.com/file/pmer88pSeAiUDVVXk9kM4t/Liveasy?node-id=12%3A329
 
-A few resources to get you started if this is your first Flutter project:
+And here is what I came up with. The Spitting image of the design.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
